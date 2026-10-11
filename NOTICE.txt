@@ -1,0 +1,20 @@
+City kit: where each part came from
+
+CODE AND ARTWORK: MIT, see LICENSE. Copyright (c) 2026 NaNoBotCo.
+
+Adapted from Mot Dang (https://github.com/NaNoBotCo/mot-dang, source code under MIT per its NOTICE.txt):
+- js/doodler-core.js, doodler-land.js, doodler-scenes.js, doodler.js: the paper, people, props, sky and scenes follow assets/front/doodler.js and assets/front/skyline.js. The Chiang Mai sights, clothes, Thai text and calendar logic are left out.
+- js/pins.js and tools/make_pins.py: follow mappins_layer.py (disc, rim, glyph, thinning by zoom and by touching).
+- assets/icons.svg: sixteen glyphs copied from the site's icon sprite, drawn for Mot Dang on a 24 grid.
+
+Adapted from Warp and Weft and Golden Gate (https://github.com/NaNoBotCo/warp-and-weft and /golden-gate, code under MIT per their NOTICE.txt):
+- minisite/minisite.css and minisite/build.py follow the page layout of those two minisites: hero, slab of numbers, kicker and heading, toy panel, sources. Their text, pictures, data and fonts are not copied.
+
+DATA
+- data/places.json and data/ground.json: invented for this kit, CC0 1.0 (public domain dedication). No place in them exists.
+- Data written by tools/osm_fetch.py comes from OpenStreetMap contributors under the Open Database Licence 1.0 (share-alike). The attribution line is written into the _meta block of data/places.json; show it on your site.
+
+OTHER
+- Fonts: the pages name system fonts.
+- Libraries: none are bundled; the pages load nothing from other sites.
+- The sun-height formula in minisite/minisite.js is the standard declination and hour-angle approximation.

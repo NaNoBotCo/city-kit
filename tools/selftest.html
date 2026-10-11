@@ -1,0 +1,50 @@
+<!doctype html>
+<meta charset="utf-8"><title>running</title>
+<style>body{font:14px ui-monospace,Menlo,monospace;padding:12px}#m{width:640px;height:420px;position:relative}</style>
+<pre id="out"></pre><div id="m"></div>
+<script src="../js/doodler-core.js"></script><script src="../js/doodler-land.js"></script><script src="../js/doodler-scenes.js"></script><script src="../js/doodler.js"></script>
+<script src="../js/pins-table.js"></script><script src="../js/pins.js"></script><script src="../js/citymap.js"></script>
+<script>
+/* Smoke test: every scene draws without an error, every pin has pixels, the map shows pins and a tap picks one.
+   Run it with: python3 tools/check.py */
+var out = document.getElementById('out'), fails = 0, errs = 0, orig = console.error;
+console.error = function () { errs++; orig.apply(console, arguments); };
+function line(ok, msg) { if (!ok) fails++; out.textContent += (ok ? 'ok    ' : 'FAIL  ') + msg + '\n'; }
+function colours(cv) {
+  var d = cv.getContext('2d').getImageData(0, 0, cv.width, cv.height).data, seen = {}, n = 0;
+  for (var i = 0; i < d.length; i += 4 * 37) { var k = (d[i] >> 4) + ',' + (d[i + 1] >> 4) + ',' + (d[i + 2] >> 4); if (!seen[k]) { seen[k] = 1; n++; } }
+  return n;
+}
+Promise.all([fetch('../city.json').then(function (r) { return r.json(); }), fetch('../data/places.json').then(function (r) { return r.json(); })]).then(function (all) {
+  var city = all[0], places = all[1].places;
+  CityDoodler.configure(city);
+  CityDoodler.scenes().forEach(function (name) {
+    [10, 22].forEach(function (hr) {
+      var cv = document.createElement('canvas'); cv.width = 600; cv.height = 260; cv.style.width = '600px'; cv.style.height = '260px'; document.body.appendChild(cv);
+      var before = errs; CityDoodler.still(cv, { scene: name, seed: 7, hour: hr, label: name, t: 5000 });
+      var n = colours(cv); line(errs === before && n > 40, 'scene ' + name + ' at ' + hr + ':00 (' + n + ' colours)');
+      cv.remove();
+    });
+  });
+  city.categories.concat([{ id: '_' }]).forEach(function (c) {
+    var ic = CityPins.icon(c.id, 24, 2), d = ic.getContext('2d').getImageData(0, 0, ic.width, ic.height).data, white = 0, solid = 0;
+    for (var i = 0; i < d.length; i += 4) { if (d[i + 3] > 200) { solid++; if (d[i] > 240 && d[i + 1] > 240 && d[i + 2] > 240) white++; } }
+    line(solid > 800 && white > 150, 'pin ' + c.id + ' (' + solid + ' solid, ' + white + ' white pixels)');
+  });
+  var picked = null, m = document.getElementById('m');
+  var map = CityMap(m, { places: places, center: city.centre, zoom: 16, floor: city.pinFloor, onSelect: function (p) { picked = p; } });
+  setTimeout(function () {
+    map.redraw(); var pins = map.pins(); line(pins.length > 3, 'map shows ' + pins.length + ' pins at zoom 16');
+    var cv = m.querySelector('canvas'), r = cv.getBoundingClientRect(), p = pins[0];
+    if (p) { var x = r.left + p.x, y = r.top + p.y; ['pointerdown', 'pointerup'].forEach(function (t) { cv.dispatchEvent(new PointerEvent(t, { clientX: x, clientY: y, pointerId: 1, bubbles: true })); }); }
+    line(picked && p && picked.id === p.place.id, 'tap on a pin picks ' + (picked && picked.id));
+    map.setView(city.centre.lat, city.centre.lng, 13); map.redraw();
+    setTimeout(function () {
+      var wide = map.pins().length, steps = 13 - city.pinFloor;
+      line(wide >= 0 && wide <= 4, 'at the pin floor (zoom 13) the map shows ' + wide + ' pins');
+      document.title = fails ? 'FAIL ' + fails : 'PASS';
+      out.textContent += (fails ? fails + ' failed' : 'all passed') + '\n';
+    }, 100);
+  }, 400);
+}).catch(function (e) { out.textContent += 'FAIL  ' + e + '\n'; document.title = 'FAIL'; });
+</script>

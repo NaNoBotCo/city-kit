@@ -1,0 +1,48 @@
+/* The minisite look: a warm paper page, a hero drawn in code, a slab of numbers, then sections that each carry one toy.
+   Colours are the tokens under :root; change them there. Dark mode follows the reader's setting. */
+:root{--bg:#f6efe3;--card:#fffaf1;--ink:#2a1a12;--mute:#6d5646;--line:#e3d5c0;--gold:#b97a1c;--teal:#137a71;--pink:#c24a82;--dark:#1a100b;
+ --f:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--s:Georgia,"Times New Roman",serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c120d;--card:#26190f;--ink:#f0e6d6;--mute:#bba58f;--line:#3d2b1f;--gold:#e9a53c;--teal:#3fb3a6;--pink:#e377a9}}
+:root[data-theme=dark]{--bg:#1c120d;--card:#26190f;--ink:#f0e6d6;--mute:#bba58f;--line:#3d2b1f;--gold:#e9a53c;--teal:#3fb3a6;--pink:#e377a9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--f);-webkit-text-size-adjust:100%}
+a{color:var(--teal)}h2,h3{font-family:var(--s);line-height:1.2}
+header.top{position:sticky;top:0;z-index:20;background:rgba(20,11,7,.92);backdrop-filter:blur(6px);color:#f4ead8}
+header.top .in{display:flex;gap:14px;align-items:center;max-width:1180px;margin:0 auto;padding:8px 16px}
+.brand{color:#f4ead8;text-decoration:none;font-weight:700;white-space:nowrap}
+header.top nav{display:flex;gap:12px;overflow-x:auto;flex:1;scrollbar-width:none;font-size:14px}
+header.top nav a,.langsw a{color:#e7d6bd;text-decoration:none;white-space:nowrap}header.top nav a:hover{color:#fff}
+.langsw{display:flex;gap:8px;font-size:14px}.langsw a[aria-current]{color:#e9a53c;font-weight:700}
+.hero{position:relative;background:#0d0705;color:#f4ead8}
+#hero{display:block;width:100%;height:clamp(320px,46vw,520px)}
+.hero .over{position:absolute;left:0;right:0;top:0;padding:26px 16px 0;pointer-events:none}
+.hero .over .in{max-width:1180px;margin:0 auto}
+.hero .kicker{color:#e9a53c;font-weight:700;margin:0 0 4px;letter-spacing:.04em;text-transform:uppercase;font-size:14px;text-shadow:0 1px 10px #000}
+.hero h1{font-family:var(--s);font-size:clamp(34px,6vw,70px);margin:0;line-height:1.04;text-shadow:0 2px 18px #000;max-width:900px}
+.hero .sub{font-size:clamp(15px,2vw,20px);max-width:640px;margin:10px 0 0;color:#ecdcc4;text-shadow:0 1px 10px #000}
+main{max-width:1060px;margin:0 auto;padding:0 16px}
+.slab{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:28px 0}
+.slab div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.slab b{display:block;font:700 28px/1.1 var(--s);color:var(--gold)}.slab span{font-size:14px;color:var(--mute)}
+section.sec{padding:34px 0;border-top:1px solid var(--line)}
+section.sec>h2{font-size:clamp(28px,4vw,42px);margin:0 0 6px}
+.kick{color:var(--gold);font-weight:700;letter-spacing:.02em;margin:0}
+.lede{max-width:720px}
+.toy{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:18px 0}
+.toy canvas{display:block;width:100%;border-radius:8px;touch-action:manipulation}
+.ctl{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:10px 0 0;font-size:15px}
+.ctl button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 13px;cursor:pointer}
+.ctl button:hover{border-color:var(--gold)}
+.ctl label{display:flex;gap:6px;align-items:center}.ctl input[type=range]{width:150px;accent-color:var(--gold)}
+.out{font-size:15px;color:var(--mute);margin:10px 0 0;min-height:1.6em}
+.formula{font-family:ui-monospace,Menlo,monospace;font-size:14px;color:var(--mute);overflow-wrap:anywhere}
+#walkmap{height:420px;border-radius:8px;overflow:hidden;position:relative}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0}
+.cards article{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.cards canvas{display:block;width:100%;height:120px}
+.cards .b{padding:10px 14px 14px}.cards h3{margin:0;font-size:20px}.cards .alt{color:var(--gold);font-size:14px;margin:0 0 4px}.cards p{margin:0;font-size:15px}
+.sources li{margin:4px 0;font-size:15px}
+footer.bot{border-top:1px solid var(--line);margin-top:30px;padding:20px 16px;font-size:14px;color:var(--mute);text-align:center}
+@media (max-width:640px){header.top nav{display:none}.slab b{font-size:24px}}
+body.card header.top,body.card main,body.card footer{display:none}
+body.card .over{padding:60px 64px 0}body.card #hero{height:100vh}

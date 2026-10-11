@@ -1,0 +1,190 @@
+{
+ "_meta": {
+  "city": "Marlow Bay (made up)",
+  "note": "Invented for the sample. No place here exists. Coordinates are arbitrary points in the mid-Atlantic. Replace with your own rows, or generate them with tools/osm_fetch.py.",
+  "licence": "CC0 1.0 (public domain dedication)",
+  "attribution": "Made up for this kit; no source to credit."
+ },
+ "places": [
+  {
+   "id": "salt-and-ladle",
+   "name": {
+    "en": "Salt & Ladle",
+    "es": "Salt & Cucharón"
+   },
+   "category": "food",
+   "lat": 0.001085,
+   "lng": -30.002246,
+   "rank": 90,
+   "address": "12 Harbour Road",
+   "hours": "Daily 11:00 to 22:00",
+   "blurb": {
+    "en": "Harbour-side chowder bar. Eight stools, one pot.",
+    "es": "Barra de sopa junto al puerto. Ocho taburetes, una olla."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "marlow-market-hall",
+   "name": {
+    "en": "Marlow Market Hall",
+    "es": "Mercado de Marlow"
+   },
+   "category": "market",
+   "lat": -0.000814,
+   "lng": -29.999281,
+   "rank": 100,
+   "address": "1 Market Row",
+   "hours": "Tue to Sun 06:00 to 15:00",
+   "blurb": {
+    "en": "Fish at dawn, cheese by noon, flowers all day. Awnings in six colours.",
+    "es": "Pescado al amanecer, queso a mediodía, flores todo el día. Toldos de seis colores."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "st-odiles-chapel",
+   "name": {
+    "en": "St Odile's Chapel",
+    "es": "Capilla de Santa Odilia"
+   },
+   "category": "worship",
+   "lat": 0.002984,
+   "lng": -30.002695,
+   "rank": 60,
+   "address": "3 Chapel Lane",
+   "hours": "Daily 08:00 to 18:00",
+   "blurb": {
+    "en": "A small stone chapel with a tall bell tower and a quiet candle table.",
+    "es": "Una capilla de piedra con un campanario alto y una mesa de velas tranquila."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "bay-clinic",
+   "name": {
+    "en": "Bay Clinic",
+    "es": "Clínica de la Bahía"
+   },
+   "category": "health",
+   "lat": 0.00208,
+   "lng": -29.996407,
+   "rank": 70,
+   "address": "8 Foghorn Street",
+   "hours": "Mon to Sat 08:00 to 20:00",
+   "blurb": {
+    "en": "Walk-in clinic and pharmacy; stretch classes on Saturday mornings.",
+    "es": "Clínica sin cita y farmacia; clases de estiramiento los sábados por la mañana."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "lantern-street-school",
+   "name": {
+    "en": "Lantern Street School",
+    "es": "Escuela de la Calle del Farol"
+   },
+   "category": "school",
+   "lat": 0.002713,
+   "lng": -29.998922,
+   "rank": 65,
+   "address": "40 Lantern Street",
+   "hours": "Mon to Fri 08:00 to 15:30",
+   "blurb": {
+    "en": "Primary school with a chalk-and-formula Friday for the whole street.",
+    "es": "Escuela primaria con un viernes de tiza y fórmulas para toda la calle."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "gull-and-anchor-inn",
+   "name": {
+    "en": "The Gull & Anchor Inn",
+    "es": "Posada La Gaviota y el Ancla"
+   },
+   "category": "hotel",
+   "lat": -0.000995,
+   "lng": -30.003773,
+   "rank": 55,
+   "address": "2 Harbour Road",
+   "hours": "Reception 07:00 to 23:00",
+   "blurb": {
+    "en": "Twelve rooms over a pub kitchen; the breakfast table is under string lights.",
+    "es": "Doce habitaciones sobre una cocina de pub; el desayuno es bajo luces de guirnalda."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "foghorn-club",
+   "name": {
+    "en": "Foghorn Club",
+    "es": "Club Sirena"
+   },
+   "category": "music",
+   "lat": -0.001085,
+   "lng": -29.996137,
+   "rank": 75,
+   "address": "21 Foghorn Street",
+   "hours": "Thu to Sun 19:00 to 01:00",
+   "blurb": {
+    "en": "Live bands Thursday to Sunday; the stage lights sweep the ceiling.",
+    "es": "Bandas en vivo de jueves a domingo; las luces del escenario barren el techo."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "maritime-museum",
+   "name": {
+    "en": "Marlow Maritime Museum",
+    "es": "Museo Marítimo de Marlow"
+   },
+   "category": "museum",
+   "lat": 0.000271,
+   "lng": -30.002964,
+   "rank": 80,
+   "address": "5 Chapel Lane",
+   "hours": "Wed to Mon 10:00 to 17:00",
+   "blurb": {
+    "en": "Ship models, charts and a brass ship's bell you may ring once.",
+    "es": "Maquetas de barcos, cartas náuticas y una campana de latón que se toca una vez."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "ropewalk-gardens",
+   "name": {
+    "en": "Ropewalk Gardens",
+    "es": "Jardines del Cordelero"
+   },
+   "category": "park",
+   "lat": 0.004522,
+   "lng": -29.99991,
+   "rank": 85,
+   "address": "Lantern Street (south end)",
+   "hours": "Open all hours",
+   "blurb": {
+    "en": "Long lawns where the rope-makers once walked; fun run every first Sunday.",
+    "es": "Largos céspedes donde caminaban los cordeleros; carrera popular el primer domingo."
+   },
+   "source": "made up for this kit"
+  },
+  {
+   "id": "point-lighthouse",
+   "name": {
+    "en": "Point Lighthouse",
+    "es": "Faro de la Punta"
+   },
+   "category": "sight",
+   "lat": -0.002125,
+   "lng": -30.004222,
+   "rank": 95,
+   "address": "West Point",
+   "hours": "Grounds open daily",
+   "blurb": {
+    "en": "Red-banded lighthouse on the western point; the lamp turns at dusk.",
+    "es": "Faro de bandas rojas en la punta oeste; la lámpara gira al anochecer."
+   },
+   "source": "made up for this kit"
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doodler gallery</title>
+<style>
+:root{--bg:#f6efe3;--card:#fffaf1;--ink:#2a1a12;--mute:#6d5646;--line:#e3d5c0}
+@media (prefers-color-scheme:dark){:root{--bg:#1c120d;--card:#26190f;--ink:#f0e6d6;--mute:#bba58f;--line:#3d2b1f}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:18px 16px 4px;max-width:1180px;margin:0 auto}h1{margin:0;font:700 28px Georgia,serif}
+p{color:var(--mute);margin:4px 0 0}
+.bar{max-width:1180px;margin:8px auto;padding:0 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.grid{max-width:1180px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+canvas{display:block;width:100%;height:230px}
+figcaption{padding:6px 12px;font-size:14px;color:var(--mute)}
+label{font-size:14px}input[type=range]{width:200px}
+</style></head><body>
+<header><h1>Doodler gallery</h1><p>Every scene, drawn in code. The slider moves the hour; the same seed draws the same picture.</p></header>
+<div class="bar"><label>Hour <input id="hour" type="range" min="0" max="23.5" step="0.5" value="14"> <output id="hourOut">14:00</output></label>
+<label>Seed <input id="seed" type="number" value="7" style="width:70px"></label></div>
+<div class="grid" id="grid"></div>
+<script src="js/doodler-core.js"></script><script src="js/doodler-land.js"></script><script src="js/doodler-scenes.js"></script><script src="js/doodler.js"></script>
+<script>
+fetch('city.json').then(function(r){return r.json();}).then(function(city){
+  CityDoodler.configure(city);
+  var q=new URLSearchParams(location.search), grid=document.getElementById('grid'), hr=document.getElementById('hour'), out=document.getElementById('hourOut'), sd=document.getElementById('seed'), mounts=[];
+  if(q.has('hour'))hr.value=q.get('hour'); if(q.has('seed'))sd.value=q.get('seed');
+  CityDoodler.scenes().forEach(function(name){
+    var f=document.createElement('figure'),c=document.createElement('canvas'),cap=document.createElement('figcaption');
+    cap.textContent=name; f.appendChild(c); f.appendChild(cap); grid.appendChild(f);
+    mounts.push(CityDoodler.mount(c,{scene:name,seed:+sd.value,hour:+hr.value,label:name}));
+  });
+  function go(){var h=+hr.value;out.textContent=Math.floor(h)+':'+(h%1?'30':'00');mounts.forEach(function(m){m.set({hour:h,seed:+sd.value});});}
+  hr.oninput=go; sd.oninput=go; go();
+});
+</script></body></html>

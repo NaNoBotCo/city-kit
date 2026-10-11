@@ -1,0 +1,59 @@
+{
+  "_note": "Every text is { en, es } (one key per language in city.json). Add a language: add its key everywhere and its code to languages. A section with toy light or toy walk gets that interactive; a section with cards gets the places.",
+  "site_url": "https://example.com/marlow-bay/",
+  "title": { "en": "Marlow Bay, drawn by arithmetic", "es": "Bahía Marlow, dibujada con aritmética" },
+  "kicker": { "en": "A sample minisite", "es": "Un minisitio de muestra" },
+  "lede": {
+    "en": "The light of a day and the length of a walk, worked out in the browser for a made-up city. Swap the numbers and the words and it is yours.",
+    "es": "La luz de un día y la distancia de un paseo, calculadas en el navegador para una ciudad inventada. Cambie los números y las palabras y será suya."
+  },
+  "latitude": 0.0,
+  "walk_speed_m_per_min": 80,
+  "stats": [
+    { "n": "10", "t": { "en": "places on the map", "es": "lugares en el mapa" } },
+    { "n": "8", "t": { "en": "doodle scenes", "es": "escenas dibujadas" } },
+    { "n": "80 m", "t": { "en": "walked in a minute", "es": "andados en un minuto" } },
+    { "n": "12 h", "t": { "en": "of daylight at the equator, give or take", "es": "de luz en el ecuador, más o menos" } }
+  ],
+  "sections": [
+    {
+      "id": "light", "toy": "light",
+      "kick": { "en": "Light", "es": "Luz" },
+      "title": { "en": "How high is the sun", "es": "Qué tan alto está el sol" },
+      "body": [
+        { "en": "The sun's height above the horizon depends on three things: the hour, the day of the year and how far you are from the equator. Move the sliders and the picture at the top follows the hour.",
+          "es": "La altura del sol sobre el horizonte depende de tres cosas: la hora, el día del año y la distancia al ecuador. Mueva los controles y la imagen de arriba sigue la hora." }
+      ],
+      "formula": "sin(altitude) = sin(lat) · sin(decl) + cos(lat) · cos(decl) · cos(hour angle)"
+    },
+    {
+      "id": "walk", "toy": "walk",
+      "kick": { "en": "Walk", "es": "Paseo" },
+      "title": { "en": "How far is five minutes", "es": "Qué tan lejos son cinco minutos" },
+      "body": [
+        { "en": "Tap a pin to stand there. The circle is as far as you get in the minutes you choose, in a straight line. The list is every place inside it.",
+          "es": "Toque un marcador para ponerse allí. El círculo es hasta dónde llega en los minutos que elija, en línea recta. La lista son los lugares dentro." }
+      ],
+      "formula": "distance = speed × minutes"
+    },
+    {
+      "id": "places", "cards": true,
+      "kick": { "en": "Places", "es": "Lugares" },
+      "title": { "en": "Ten places", "es": "Diez lugares" },
+      "body": [
+        { "en": "Each picture is drawn from the place's category and its name, so the same place gets the same picture each time.",
+          "es": "Cada imagen se dibuja a partir de la categoría y el nombre del lugar, así que el mismo lugar recibe la misma imagen cada vez." }
+      ]
+    },
+    {
+      "id": "sources", "sources": true,
+      "kick": { "en": "Sources", "es": "Fuentes" },
+      "title": { "en": "Sources", "es": "Fuentes" }
+    }
+  ],
+  "sources": [
+    { "name": "Sun position: the standard declination and hour-angle formulas (Meeus, Astronomical Algorithms, simplified)", "url": "https://en.wikipedia.org/wiki/Position_of_the_Sun" },
+    { "name": "Walking speed: 80 metres a minute is the common planning figure (about 4.8 km/h)", "url": "https://en.wikipedia.org/wiki/Preferred_walking_speed" },
+    { "name": "Places: invented for this kit (data/places.json)", "url": "" }
+  ]
+}

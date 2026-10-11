@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marlow Bay · city kit sample</title>
+<meta name="description" content="A made-up city directory: paper-cut doodles, a map with icon pins, ten places.">
+<link rel="icon" href="assets/pins/pin-sight.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/site.css">
+</head><body>
+<header class="top"><div class="in">
+  <a class="brand" href="./" id="brand">Marlow Bay</a>
+  <nav><a href="#map" data-t="navMap">Map</a><a href="#places" data-t="navPlaces">Places</a><a href="minisite/" data-t="navMini">Minisite</a><a href="doodles.html" data-t="navDoodles">Doodles</a></nav>
+  <span class="langsw" id="langsw"></span>
+</div></header>
+
+<section class="hero">
+  <canvas id="hero" role="img" aria-label="A paper-cut scene of the selected place"></canvas>
+  <div class="over"><div class="in">
+    <h1 id="h1">Marlow Bay</h1>
+    <p class="sub" id="sub"></p>
+  </div></div>
+  <div class="hourbar"><label><span data-t="hour">Hour</span> <input id="hour" type="range" min="0" max="23.5" step="0.5" value="15"> <output id="hourOut"></output></label>
+    <button type="button" id="now" data-t="now">Now</button></div>
+</section>
+
+<main>
+  <section class="cols" id="map">
+    <div class="mapwrap"><div id="citymap"></div>
+      <div class="detail"><span data-t="detail">Detail</span>
+        <button type="button" data-d="less" data-t="less">Less</button><button type="button" data-d="more" data-t="more">More</button><button type="button" data-d="most" data-t="most">Most</button></div>
+    </div>
+    <aside class="panel" id="panel"></aside>
+  </section>
+  <section id="places"><h2 data-t="places">Places</h2><div class="cards" id="cards"></div></section>
+  <p class="foot" id="foot"></p>
+</main>
+
+<script src="js/doodler-core.js"></script><script src="js/doodler-land.js"></script><script src="js/doodler-scenes.js"></script><script src="js/doodler.js"></script>
+<script src="js/pins-table.js"></script><script src="js/pins.js"></script><script src="js/citymap.js"></script>
+<script src="js/site.js"></script>
+</body></html>

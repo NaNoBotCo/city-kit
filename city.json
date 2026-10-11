@@ -1,0 +1,41 @@
+{
+  "name": { "en": "Marlow Bay", "es": "Bahía Marlow" },
+  "tagline": { "en": "A made-up city, for trying the kit.", "es": "Una ciudad inventada, para probar el kit." },
+  "languages": ["en", "es"],
+  "centre": { "lat": 0.0, "lng": -30.0 },
+  "zoom": 15.3,
+  "pinFloor": 13,
+  "landscape": {
+    "ridges": [
+      { "height": 0.34, "color": "#7d9db3", "seed": 3 },
+      { "height": 0.22, "color": "#5f8a8a", "seed": 8 },
+      { "height": 0.13, "color": "#4d7a63", "seed": 21 }
+    ],
+    "water": { "color": "#5f9fc2" },
+    "sights": [
+      { "kind": "lighthouse", "at": 0.07, "size": 0.9, "color": "#cfd8dc" },
+      { "kind": "dome", "at": 0.27, "size": 1.0, "color": "#a68a7a" },
+      { "kind": "bridge", "at": 0.52, "size": 0.8, "color": "#c0583a" },
+      { "kind": "tower", "at": 0.74, "size": 1.0, "color": "#8c8fa6" },
+      { "kind": "blocks", "at": 0.9, "size": 0.9, "color": "#7b86a0" }
+    ]
+  },
+  "categories": [
+    { "id": "food", "label": { "en": "Food and drink", "es": "Comer y beber" }, "glyph": "i-food", "color": "#C2410C", "scene": "cafe" },
+    { "id": "market", "label": { "en": "Markets", "es": "Mercados" }, "glyph": "i-market", "color": "#9A3412", "scene": "market" },
+    { "id": "worship", "label": { "en": "Places of worship", "es": "Lugares de culto" }, "glyph": "i-wat", "color": "#A85A07", "scene": "calm" },
+    { "id": "health", "label": { "en": "Health", "es": "Salud" }, "glyph": "i-health", "color": "#B91C1C", "scene": "yoga" },
+    { "id": "school", "label": { "en": "Schools", "es": "Escuelas" }, "glyph": "i-school", "color": "#4338CA", "scene": "learn" },
+    { "id": "hotel", "label": { "en": "Stays", "es": "Alojamiento" }, "glyph": "i-bed", "color": "#6D28D9", "scene": "cafe" },
+    { "id": "sport", "label": { "en": "Sport", "es": "Deporte" }, "glyph": "i-fit", "color": "#0E7490", "scene": "run" },
+    { "id": "music", "label": { "en": "Music and film", "es": "Música y cine" }, "glyph": "i-film", "color": "#9D174D", "scene": "band" },
+    { "id": "museum", "label": { "en": "Museums", "es": "Museos" }, "glyph": "i-museum", "color": "#7E22CE", "scene": "street" },
+    { "id": "park", "label": { "en": "Parks", "es": "Parques" }, "glyph": "i-park", "color": "#166534", "scene": "run" },
+    { "id": "sight", "label": { "en": "Sights", "es": "Lugares de interés" }, "glyph": "i-star", "color": "#BE123C", "scene": "street" },
+    { "id": "shop", "label": { "en": "Shops", "es": "Tiendas" }, "glyph": "i-gift", "color": "#BE185D", "scene": "market" },
+    { "id": "transport", "label": { "en": "Getting around", "es": "Transporte" }, "glyph": "i-ride", "color": "#0369A1", "scene": "street" },
+    { "id": "bank", "label": { "en": "Banks and services", "es": "Bancos y servicios" }, "glyph": "i-bank", "color": "#1E40AF", "scene": "street" },
+    { "id": "community", "label": { "en": "Community", "es": "Comunidad" }, "glyph": "i-people", "color": "#4D7C0F", "scene": "learn" }
+  ],
+  "otherPin": { "glyph": "i-pin", "color": "#5B4636" }
+}
