@@ -1,6 +1,8 @@
 {
   "_note": "Every text is { en, es } (one key per language in city.json). Add a language: add its key everywhere and its code to languages. A section with toy light or toy walk gets that interactive; a section with cards gets the places.",
   "site_url": "https://example.com/marlow-bay/",
+  "card_base": "https://nanobotco.github.io/city-kit/minisite/",
+  "card_alt": { "en": "Paper-cut street of Marlow Bay at night: a lighthouse, hills, a bridge, people on bicycles.", "es": "Calle de papel recortado de Bahía Marlow de noche: un faro, colinas, un puente, gente en bicicleta." },
   "title": { "en": "Marlow Bay, drawn by arithmetic", "es": "Bahía Marlow, dibujada con aritmética" },
   "kicker": { "en": "A sample minisite", "es": "Un minisitio de muestra" },
   "lede": {

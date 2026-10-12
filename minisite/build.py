@@ -77,6 +77,13 @@ def page(lang):
                 '<li>%s</li>' % ('<a href="%s">%s</a>' % (e(x["url"]), e(x["name"])) if x["url"] else e(x["name"])) for x in MINI["sources"]))
         out.append("</section>")
         secs.append("".join(out))
+    card = ""
+    if MINI.get("card_base"):
+        img = MINI["card_base"].rstrip("/") + "/" + ("" if lang == LANGS[0] else lang + "/") + "card.jpg"
+        card = ('<meta property="og:site_name" content="%s"><meta property="og:image" content="%s">'
+                '<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
+                '<meta property="og:image:alt" content="%s"><meta name="twitter:card" content="summary_large_image">'
+                '<meta name="twitter:image" content="%s">' % (e(t(CITY["name"])), e(img), e(t(MINI["card_alt"])), e(img)))
     boot = json.dumps({"lang": lang, "root": root, "latitude": MINI["latitude"], "speed": MINI["walk_speed_m_per_min"]})
     return """<!doctype html>
 <html lang="%(lang)s"><head>
@@ -85,7 +92,7 @@ def page(lang):
 <meta name="description" content="%(lede)s">
 <meta name="theme-color" content="#1a100b">
 <link rel="canonical" href="%(here)s">%(alts)s
-<meta property="og:type" content="website"><meta property="og:title" content="%(title)s"><meta property="og:description" content="%(lede)s"><meta property="og:url" content="%(here)s">
+<meta property="og:type" content="website"><meta property="og:title" content="%(title)s"><meta property="og:description" content="%(lede)s"><meta property="og:url" content="%(here)s">%(card)s
 <link rel="icon" href="%(root)sassets/pins/pin-sight.svg" type="image/svg+xml">
 <link rel="alternate" type="text/plain" href="%(site)sllms.txt" title="llms.txt">
 <link rel="stylesheet" href="%(up)sminisite.css">
@@ -108,7 +115,7 @@ def page(lang):
 <script src="%(root)sjs/pins-table.js"></script><script src="%(root)sjs/pins.js"></script><script src="%(root)sjs/citymap.js"></script>
 <script src="%(up)sminisite.js"></script>
 </body></html>
-""" % dict(lang=lang, title=e(title), lede=e(t(MINI["lede"])), here=e(here), alts=alts, root=root, up=up, site=SITE, city=e(t(CITY["name"])), nav=nav,
+""" % dict(lang=lang, title=e(title), lede=e(t(MINI["lede"])), here=e(here), card=card, alts=alts, root=root, up=up, site=SITE, city=e(t(CITY["name"])), nav=nav,
            langsw=langsw, kicker=e(t(MINI["kicker"])), slab=slab, secs="\n".join(secs), boot=boot)
 
 
